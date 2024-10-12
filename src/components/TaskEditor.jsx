@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { addTask } from "../redux/tasks/operations";
 import css from "../css/TaskEditor.module.css";
 
-export const TaskEditor = () => {
+export default function TaskEditor  (){
 	const dispatch = useDispatch();
 
 	const handleSubmit = (e) => {

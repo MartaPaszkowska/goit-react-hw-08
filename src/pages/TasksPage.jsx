@@ -4,7 +4,7 @@ import DocumentTitle from "../components/DocumentTitle";
 import TaskList from "../components/TaskList";
 import TaskEditor from "../components/TaskEditor";
 import { fetchTasks } from "../redux/tasks/operations";
-import { selectLoading } from "../redux/auth/selectors";
+import { selectLoading } from "../redux/tasks/selectors";
 
 export default function TasksPage() {
 	const dispatch = useDispatch();

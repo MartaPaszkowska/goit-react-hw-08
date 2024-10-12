@@ -5,7 +5,7 @@ import  AuthNav  from "./AuthNav";
 import { selectIsLoggedIn } from "../redux/auth/selectors";
 import css from "../css/AppBar.module.css";
 
-export const AppBar = () => {
+export default function AppBar  ()  {
 	const isLoggedIn = useSelector(selectIsLoggedIn);
 
 	return (

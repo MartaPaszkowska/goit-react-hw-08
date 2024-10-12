@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { logIn } from "../redux/auth/operations";
 import css from "../css/LoginForm.module.css";
 
-export const LoginForm = () => {
+export default function LoginForm() {
 	const dispatch = useDispatch();
 
 	const handleSubmit = (e) => {
@@ -39,4 +39,4 @@ export const LoginForm = () => {
 			<button type="submit">Log In</button>
 		</form>
 	);
-};
+}

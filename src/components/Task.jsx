@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { deleteTask } from "../redux/tasks/operations";
 import css from "../css/Task.module.css";
 
-export const Task = ({ id, text }) => {
+export default function Task({ id, text }) {
 	const dispatch = useDispatch();
 
 	const handleDelete = () => dispatch(deleteTask(id));
@@ -15,4 +15,4 @@ export const Task = ({ id, text }) => {
 			</button>
 		</div>
 	);
-};
+}
