@@ -1,40 +1,57 @@
-import { useDispatch } from 'react-redux';
-import { register } from '../../redux/auth/operations';
-import css from './RegisterForm.module.css';
+import { useDispatch } from "react-redux";
+import { useId } from "react";
+import { Form, Field, Formik } from "formik";
+import { register } from "../../redux/auth/operations";
 
-export const RegisterForm = () => {
-  const dispatch = useDispatch();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.target;
-
-    dispatch(
-      register({
-        name: form.elements.name.value,
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
-
-    form.reset();
-  };
-
-  return (
-    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-      <label className={css.label}>
-        Username
-        <input type="text" name="name" />
-      </label>
-      <label className={css.label}>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label className={css.label}>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Register</button>
-    </form>
-  );
-};
+export default function RegistrationForm() {
+	const dispatch = useDispatch();
+	const labelID = useId();
+	const handleSubmitForm = (values, actions) => {
+		dispatch(
+			register({
+				name: values.name,
+				email: values.email,
+				password: values.password,
+			})
+		);
+		actions.resetForm();
+	};
+	return (
+		<Formik
+			initialValues={{ name: "", email: "", password: "" }}
+			onSubmit={handleSubmitForm}
+		>
+			<Form autocomlete="off">
+				<h1>Register Form</h1>
+				<div>
+					<Field
+						type="text"
+						name="name"
+						id={`${labelID}-name`}
+						placeholder=" "
+					/>
+					<label htmlFor={`${labelID}-name`}>User Name</label>
+				</div>
+				<div>
+					<Field
+						type="email"
+						name="email"
+						id={`${labelID}-email`}
+						placeholder=" "
+					/>
+					<label htmlFor={`${labelID}-email`}>Email</label>
+				</div>
+				<div>
+					<Field
+						type="password"
+						name="password"
+						id={`${labelID}-password`}
+						placeholder=" "
+					/>
+					<label htmlFor={`${labelID}-password`}>Password</label>
+				</div>
+				<button type="submit">Register</button>
+			</Form>
+		</Formik>
+	);
+}

@@ -1,42 +1,42 @@
-import { useDispatch } from 'react-redux';
-import { logIn } from '../../redux/auth/operations';
-import css from './LoginForm.module.css';
+import { useDispatch } from "react-redux";
+import { useId } from "react";
+import { Form, Field, Formik } from "formik";
+import { signIn } from "../../redux/auth/operations";
 
-export const LoginForm = () => {
-  const dispatch = useDispatch();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-
-    dispatch(
-      logIn({
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    )
-      .unwrap()
-      .then(() => {
-        console.log('login success');
-      })
-      .catch(() => {
-        console.log('login error');
-      });
-
-    form.reset();
-  };
-
-  return (
-    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-      <label className={css.label}>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label className={css.label}>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
-  );
-};
+export default function LoginForm() {
+	const dispatch = useDispatch();
+	const labelID = useId();
+	const handleSubmitForm = (values, actions) => {
+		dispatch(signIn({ email: values.email, password: values.password }));
+		actions.resetForm();
+	};
+	return (
+		<Formik
+			initialValues={{ email: "", password: "" }}
+			onSubmit={handleSubmitForm}
+		>
+			<Form autocomlete="off">
+				<h1>Login Form</h1>
+				<div>
+					<Field
+						type="email"
+						name="email"
+						id={`${labelID}-email`}
+						placeholder=" "
+					/>
+					<label htmlFor={`${labelID}-email`}>Email</label>
+				</div>
+				<div>
+					<Field
+						type="password"
+						name="password"
+						id={`${labelID}-password`}
+						placeholder=" "
+					/>
+					<label htmlFor={`${labelID}-password`}>Password</label>
+				</div>
+				<button type="submit">Log in</button>
+			</Form>
+		</Formik>
+	);
+}

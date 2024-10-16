@@ -1,0 +1,72 @@
+.titleForm {
+  margin-bottom: 45px;
+  text-align: center;
+  color: #000000;
+}
+.registerForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  padding: 20px;
+  text-align: center;
+}
+.group {
+  position: relative;
+}
+
+.group:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+.labelForm {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #000000;
+  transition: 500ms ease-in-out;
+}
+
+.fieldForm {
+  letter-spacing: 1px;
+  font-size: 18px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  outline: none;
+  transition: 300ms ease-in-out;
+
+  background-color: inherit;
+}
+
+.fieldForm:focus {
+  border-bottom: 1px solid #b47807;
+}
+
+.fieldForm:focus ~ .labelForm,
+.fieldForm:not(:placeholder-shown) ~ .labelForm {
+  transform: translateY(-18px);
+  font-size: 14px;
+  color: #b47807;
+}
+
+.buttonForm {
+  letter-spacing: 1px;
+  font-size: 18px;
+
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #602905;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 300ms;
+}
+
+.buttonForm:focus,
+.buttonForm:hover {
+  background-color: rgba(59, 135, 57, 0.836);
+}

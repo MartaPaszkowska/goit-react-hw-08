@@ -1,11 +1,10 @@
-import DocumentTitle from '../../components/DocumentTitle';
-import { LoginForm } from '../../components/LoginForm/LoginForm';
+import LoginForm from "../../components/LoginForm/LoginForm";
 
-export default function LoginPage() {
-  return (
-    <div>
-      <DocumentTitle>Login</DocumentTitle>
-      <LoginForm />
-    </div>
-  );
+export default function Register() {
+	return (
+		<>
+			<title>Login Form</title>
+			<LoginForm />
+		</>
+	);
 }
