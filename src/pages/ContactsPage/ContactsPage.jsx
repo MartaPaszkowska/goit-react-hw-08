@@ -1,25 +1,27 @@
-import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import ContactList from "../../components/ContactList/ContactList";
 import SearchBox from "../../components/SearchBox/SearchBox";
-import { selectContacts } from "../../redux/contacts/selectors";
 import { fetchContacts } from "../../redux/contacts/operations";
+import styles from "./ContactsPage.module.css";
+import { useDispatch } from "react-redux";
 
-export default function ContactsPage() {
-  const dispatch = useDispatch();
-  fetchContacts;
+const ContactsPage = () => {
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(fetchContacts());
+	}, [dispatch]);
 
-  const contacts = useSelector(selectContacts);
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+	return (
+		<>
+			<div className={styles.bg}>
+				<p className={styles.title}>ADD CONTACT</p>
+				<ContactForm />
+				<SearchBox />
+				<ContactList />
+			</div>
+		</>
+	);
+};
 
-  return (
-    <>
-      <ContactForm />
-      <SearchBox />
-      {contacts.length > 0 ? <ContactList /> : <p>Your phone book is empty</p>}
-    </>
-  );
-}
+export default ContactsPage;

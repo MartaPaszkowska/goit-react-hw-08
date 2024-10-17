@@ -1,0 +1,22 @@
+.bg {
+	background: #e4c94b;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	padding-top: 30px;
+}
+
+.centerContent {
+	text-align: center;
+}
+
+.title {
+	font-weight: 800;
+	font-size: 40px;
+	font-family: "Courier New", Courier, monospace, sans-serif;
+}
+
+.bookImage {
+	width: 150px;
+	height: auto;
+}

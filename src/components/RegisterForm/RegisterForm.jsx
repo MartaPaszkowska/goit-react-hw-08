@@ -1,56 +1,111 @@
-import { useDispatch } from "react-redux";
+import { ErrorMessage, Field, Formik, Form } from "formik";
 import { useId } from "react";
-import { Form, Field, Formik } from "formik";
+import { useDispatch } from "react-redux";
+import * as Yup from "yup";
+import styles from "./RegisterForm.module.css";
 import { register } from "../../redux/auth/operations";
 
-export default function RegistrationForm() {
+export default function RegisterForm() {
+	const id = useId();
 	const dispatch = useDispatch();
-	const labelID = useId();
-	const handleSubmitForm = (values, actions) => {
-		dispatch(
-			register({
-				name: values.name,
-				email: values.email,
-				password: values.password,
-			})
-		);
+
+	const handleSubmit = (values, actions) => {
+		const credentials = {
+			name: values.name,
+			email: values.email,
+			password: values.password,
+		};
+
+		console.log("Register form values:", credentials);
+		dispatch(register(credentials));
 		actions.resetForm();
 	};
+
+	const registerValidation = Yup.object().shape({
+		name: Yup.string()
+			.min(3, "MiregisterValidationnimum 3 characters.")
+			.max(50, "Maximum 50 characters.")
+			.required("Required"),
+		email: Yup.string()
+			.email("Invalid email format")
+			.min(5, "Too Short!")
+			.max(50, "Too Long!")
+			.required("Required"),
+		password: Yup.string()
+			.min(6, "Minimum 6 characters.")
+			.max(50, "Maximum 50 characters.")
+			.required("Required"),
+	});
+
 	return (
 		<Formik
-			initialValues={{ name: "", email: "", password: "" }}
-			onSubmit={handleSubmitForm}
+			initialValues={{
+				name: "",
+				email: "",
+				password: "",
+			}}
+			onSubmit={handleSubmit}
+			validationSchema={registerValidation}
 		>
-			<Form autocomlete="off">
-				<h1>Register Form</h1>
-				<div>
+			<Form className={styles.form}>
+				<div className={styles.inputContainer}>
 					<Field
+						className={styles.input}
 						type="text"
 						name="name"
-						id={`${labelID}-name`}
-						placeholder=" "
+						id={`name${id}`}
+						placeholder="Enter your nick"
+						required
 					/>
-					<label htmlFor={`${labelID}-name`}>User Name</label>
+					<ErrorMessage
+						className={styles.error}
+						name="name"
+						component="span"
+					/>
+					<label className={styles.label} htmlFor={`name${id}`}>
+						NICK
+					</label>
 				</div>
-				<div>
+
+				<div className={styles.inputContainer}>
 					<Field
+						className={styles.input}
 						type="email"
 						name="email"
-						id={`${labelID}-email`}
-						placeholder=" "
+						placeholder="Enter your email"
+						id={`email${id}`}
+						required
 					/>
-					<label htmlFor={`${labelID}-email`}>Email</label>
+					<ErrorMessage
+						className={styles.error}
+						name="email"
+						component="span"
+					/>
+					<label className={styles.label} htmlFor={`email${id}`}>
+						EMAIL
+					</label>
 				</div>
-				<div>
+				<div className={styles.inputContainer}>
 					<Field
+						className={styles.input}
 						type="password"
 						name="password"
-						id={`${labelID}-password`}
-						placeholder=" "
+						placeholder="Enter your password"
+						id={`password${id}`}
+						required
 					/>
-					<label htmlFor={`${labelID}-password`}>Password</label>
+					<ErrorMessage
+						className={styles.error}
+						name="password"
+						component="span"
+					/>
+					<label className={styles.label} htmlFor={`password${id}`}>
+						PASSWORD
+					</label>
 				</div>
-				<button type="submit">Register</button>
+				<button className={styles.button} type="submit">
+					Register
+				</button>
 			</Form>
 		</Formik>
 	);

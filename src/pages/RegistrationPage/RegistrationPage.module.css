@@ -1,0 +1,15 @@
+.bg {
+	background-color: #e4c94b;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.title {
+	display: flex;
+	justify-content: center;
+	font-weight: 800;
+	font-size: 40px;
+	font-family: "Courier New", Courier, monospace, sans-serif;
+}

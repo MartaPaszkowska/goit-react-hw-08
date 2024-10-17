@@ -1,0 +1,28 @@
+.bg {
+	background-color: #e4c94b;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+}
+
+.title {
+	display: flex;
+	justify-content: center;
+	font-weight: 800;
+	font-size: 40px;
+	font-family: "Courier New", Courier, monospace, sans-serif;
+}
+
+.LinkContainer {
+	position: absolute;
+	bottom: 100px;
+	width: 100%;
+	text-align: center;
+}
+
+.Link {
+	display: inline-block;
+	justify-content: center;
+}

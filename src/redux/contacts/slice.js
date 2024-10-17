@@ -1,45 +1,60 @@
-import { createSlice, isAnyOf } from "@reduxjs/toolkit"
-import { addContact, deleteContact, fetchContacts } from "../../redux/contacts//operations";
+import { createSlice } from "@reduxjs/toolkit";
+import {
+  fetchContacts,
+  addContact,
+  deleteContact,
+  updateContact,
+} from "./operations";
 import { logout } from "../auth/operations";
 
-const INITIAL_STATE = {
-
-    items: [],
-    loading: false,
-    error: null
-
+const initialState = {
+  items: [],
+  isLoading: false,
+  error: null,
 };
 
-export const sliceContacts = createSlice({
-    name: "contacts",
-    initialState: INITIAL_STATE,
-    extraReducers: builder => {
-        builder
-            .addCase(fetchContacts.fulfilled, (state, action) => {
-                state.items = action.payload
-            })
-            .addCase(addContact.fulfilled, (state, action) => {
-                state.items.push(action.payload)
-            })
-            .addCase(logout.fulfilled, () => {
-                return INITIAL_STATE
-            })
-            .addCase(deleteContact.fulfilled, (state, action) => {
-                const index = state.items.findIndex(item => item.id === action.payload.id)
-                state.items.splice(index, 1)
-            })
-            .addMatcher(isAnyOf(fetchContacts.pending, addContact.pending, deleteContact.pending), (state) => {
-                state.loading = true;
-            })
-            .addMatcher(isAnyOf(fetchContacts.fulfilled, addContact.fulfilled, deleteContact.fulfilled), (state) => {
-                state.loading = false;
-                state.error = null;
-            })
-            .addMatcher(isAnyOf(fetchContacts.rejected, addContact.rejected, deleteContact.rejected), (state, action) => {
-                state.loading = false;
-                state.error = action.payload
-            })
+const contactsSlice = createSlice({
+  name: "contacts",
+  initialState,
+  reducers: {
+    clearContacts: (state) => {
+      state.items = [];
     },
-})
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchContacts.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchContacts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.items = action.payload;
+      })
+      .addCase(fetchContacts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(addContact.fulfilled, (state, action) => {
+        state.items.push(action.payload);
+      })
+      .addCase(deleteContact.fulfilled, (state, action) => {
+        state.items = state.items.filter(
+          (contact) => contact.id !== action.payload
+        );
+      })
+      .addCase(updateContact.fulfilled, (state, action) => {
+        const index = state.items.findIndex(
+          (contact) => contact.id === action.payload.id
+        );
+        state.items[index] = action.payload;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.items = []; 
+      });
+  },
+});
 
-export const contactsReducer = sliceContacts.reducer
+export const { clearContacts } = contactsSlice.actions;
+
+export const contactReducer = contactsSlice.reducer;

@@ -1,10 +1,26 @@
+import { Outlet } from "react-router-dom";
 import AppBar from "../AppBar/AppBar";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { clearContactsOperation } from "../../redux/contacts/operations";
 
-export default function Layout({ children }) {
+const Layout = () => {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		return () => {
+			dispatch(clearContactsOperation());
+		};
+	}, [dispatch]);
+
 	return (
-		<div>
+		<>
 			<AppBar />
-			{children}
-		</div>
+			<main>
+				<Outlet />
+			</main>
+		</>
 	);
-}
+};
+
+export default Layout;

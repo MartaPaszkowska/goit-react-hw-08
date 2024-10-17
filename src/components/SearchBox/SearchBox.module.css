@@ -1,13 +1,26 @@
-.sContainer {
-	margin-bottom: 20px;
-}
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 
-.sContainer input {
-	width: 100%;
-	padding: 8px;
-	font-size: 16px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	margin-top: 5px;
-	box-sizing: border-box;
+    border-radius: 8px;
+    padding: 12px;
+    background: #ffffff7a;
+    -webkit-box-shadow: 0px 5px 64px 2px rgba(213, 217, 214, 0.38);
+    -moz-box-shadow: 0px 5px 64px 2px rgba(213, 217, 214, 0.38);
+    box-shadow: 0px 5px 64px 2px rgba(213, 217, 214, 0.38);
+    max-width: 450px;
+    margin: 0 auto;
+    margin-top: 24px;
+    margin-bottom: 24px;
+
+    && p {
+        margin: 0;
+    }
+
+    && input {
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid;
+    }
 }
