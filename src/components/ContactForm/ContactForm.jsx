@@ -42,7 +42,7 @@ export default function ContactForm() {
 						component="p"
 						className={styles.error}
 					/>
-					<label>NAME</label>
+					<label className={styles.label}>NAME</label>
 				</div>
 				<div className={styles.inputContainer}>
 					<Field type="text" name="number" className={styles.input} />
@@ -51,7 +51,7 @@ export default function ContactForm() {
 						component="p"
 						className={styles.error}
 					/>
-					<label>NUMBER</label>
+					<label className={styles.label}>NUMBER</label>
 				</div>
 				<button type="submit" className={styles.button}>
 					Add Contact

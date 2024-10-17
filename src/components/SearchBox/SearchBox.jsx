@@ -4,22 +4,22 @@ import { selectFilter } from "../../redux/filters/selectors";
 import styles from "./SearchBox.module.css";
 
 export default function SearchBox() {
-  const dispatch = useDispatch();
-  const filter = useSelector(selectFilter);
+	const dispatch = useDispatch();
+	const filter = useSelector(selectFilter);
 
-  const handleChange = (event) => {
-    dispatch(changeFilter(event.target.value));
-  };
+	const handleChange = (event) => {
+		dispatch(changeFilter(event.target.value));
+	};
 
-  return (
-    <div className={styles.form}>
-      <p>Find contact by name:</p>
-      <input
-        type="text"
-        value={filter}
-        onChange={handleChange}
-        className={styles.input}
-      />
-    </div>
-  );
+	return (
+		<div className={styles.form}>
+			<input
+				type="text"
+				value={filter}
+				onChange={handleChange}
+				className={styles.input}
+			/>
+			<label className={styles.label}>FIND CONTACT BY NAME</label>
+		</div>
+	);
 }
