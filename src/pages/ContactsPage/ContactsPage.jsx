@@ -8,19 +8,19 @@ import { useDispatch } from "react-redux";
 
 const ContactsPage = () => {
 	const dispatch = useDispatch();
+
 	useEffect(() => {
 		dispatch(fetchContacts());
 	}, [dispatch]);
 
 	return (
-		<>
-			<div className={styles.bg}>
-				<p className={styles.title}>ADD CONTACT</p>
+		<div className={styles.bg}>
+			<div className={styles.container}>
 				<ContactForm />
 				<SearchBox />
 				<ContactList />
 			</div>
-		</>
+		</div>
 	);
 };
 

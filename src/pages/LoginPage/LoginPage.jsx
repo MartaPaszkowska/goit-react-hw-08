@@ -17,13 +17,11 @@ const LoginPage = () => {
 
 	return (
 		<div className={styles.bg}>
-			<p className={styles.title}>LOG IN</p>
+			<h2 className={styles.title}>LOGIN</h2>
 			<LoginForm />
-			<div className={styles.LinkContainer}>
-				<Link to="/register" className={styles.Link}>
-					If you do not have an account yet, please register
-				</Link>
-			</div>
+			<Link to="/register" className={styles.link}>
+				Do not have an account? Please register
+			</Link>
 		</div>
 	);
 };

@@ -21,20 +21,20 @@ export default function RegisterForm() {
 		actions.resetForm();
 	};
 
-	const registerValidation = Yup.object().shape({
+	const addContactSchema = Yup.object().shape({
 		name: Yup.string()
-			.min(3, "MiregisterValidationnimum 3 characters.")
-			.max(50, "Maximum 50 characters.")
-			.required("Required"),
+			.min(3, "Name is too short! Minimum 3 characters.")
+			.max(50, "Name is too long! Maximum 50 characters.")
+			.required("Name is required."),
 		email: Yup.string()
 			.email("Invalid email format")
-			.min(5, "Too Short!")
-			.max(50, "Too Long!")
-			.required("Required"),
+			.min(5, "Email is too short!")
+			.max(50, "Email is too long!")
+			.required("Email is required."),
 		password: Yup.string()
-			.min(6, "Minimum 6 characters.")
-			.max(50, "Maximum 50 characters.")
-			.required("Required"),
+			.min(8, "Password is too short! Minimum 8 characters.")
+			.max(50, "Password is too long! Maximum 50 characters.")
+			.required("Password is required."),
 	});
 
 	return (
@@ -45,29 +45,33 @@ export default function RegisterForm() {
 				password: "",
 			}}
 			onSubmit={handleSubmit}
-			validationSchema={registerValidation}
+			validationSchema={addContactSchema}
 		>
 			<Form className={styles.form}>
-				<div className={styles.inputContainer}>
-					<Field
-						className={styles.input}
-						type="text"
-						name="name"
-						id={`name${id}`}
-						placeholder="Enter your nick"
-						required
-					/>
+				<div className={styles.wrap}>
 					<ErrorMessage
 						className={styles.error}
 						name="name"
 						component="span"
 					/>
+					<Field
+						className={styles.input}
+						type="text"
+						name="name"
+						id={`name${id}`}
+						placeholder="Enter your name"
+						required
+					/>
 					<label className={styles.label} htmlFor={`name${id}`}>
-						NICK
+						Name
 					</label>
 				</div>
-
-				<div className={styles.inputContainer}>
+				<div className={styles.wrap}>
+					<ErrorMessage
+						className={styles.error}
+						name="email"
+						component="span"
+					/>
 					<Field
 						className={styles.input}
 						type="email"
@@ -76,16 +80,16 @@ export default function RegisterForm() {
 						id={`email${id}`}
 						required
 					/>
-					<ErrorMessage
-						className={styles.error}
-						name="email"
-						component="span"
-					/>
 					<label className={styles.label} htmlFor={`email${id}`}>
-						EMAIL
+						Email
 					</label>
 				</div>
-				<div className={styles.inputContainer}>
+				<div className={styles.wrap}>
+					<ErrorMessage
+						className={styles.error}
+						name="password"
+						component="span"
+					/>
 					<Field
 						className={styles.input}
 						type="password"
@@ -94,13 +98,8 @@ export default function RegisterForm() {
 						id={`password${id}`}
 						required
 					/>
-					<ErrorMessage
-						className={styles.error}
-						name="password"
-						component="span"
-					/>
 					<label className={styles.label} htmlFor={`password${id}`}>
-						PASSWORD
+						Password
 					</label>
 				</div>
 				<button className={styles.button} type="submit">

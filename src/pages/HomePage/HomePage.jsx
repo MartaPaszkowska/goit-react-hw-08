@@ -1,17 +1,22 @@
+import { Typography } from "@mui/material";
 import styles from "./HomePage.module.css";
 
 const HomePage = () => {
 	return (
 		<div className={styles.bg}>
-			<div className={styles.centerContent}>
-				<p className={styles.title}>Phone Book</p>
-
-				<img
-					src="/src/images/phonebook.jpg"
-					alt="Open Book"
-					className={styles.bookImage}
-				/>
-			</div>
+			<Typography
+				variant="h4"
+				component="h1"
+				gutterBottom
+				className={styles.title}
+			>
+				Welcome to the Contacts Book!
+			</Typography>
+			<Typography variant="body1" className={styles.text}>
+				This application allows you to manage your contacts efficiently.
+				You can register, log in, and manage your personal contact
+				collection.
+			</Typography>
 		</div>
 	);
 };

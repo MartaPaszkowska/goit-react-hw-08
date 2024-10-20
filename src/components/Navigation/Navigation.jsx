@@ -15,7 +15,7 @@ export default function Navigation() {
 						: styles.link
 				}
 			>
-				HOME
+				Home
 			</NavLink>
 
 			{isLoggedIn && (
@@ -27,7 +27,7 @@ export default function Navigation() {
 							: styles.link
 					}
 				>
-					CONTACTS
+					Contacts
 				</NavLink>
 			)}
 		</nav>

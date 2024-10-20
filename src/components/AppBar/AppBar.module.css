@@ -1,10 +1,8 @@
 .header {
+	background-color: #e4c94b; /* Żółte tło */
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	max-width: 100%;
-	background: #e4c94b;
-	padding: 12px 32px;
-	height: 60px;
+	padding: 20px;
 	border-bottom: 2px solid black;
 }

@@ -2,58 +2,47 @@
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
-	justify-content: start;
-	align-items: center;
-	height: 100vh;
-	padding-top: 20px;
+	background-color: #e4c94b; /* Żółte tło */
+	padding: 30px;
+	border-radius: 10px;
+	font-family: "Courier New", Courier, monospace;
+	width: 100%;
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+.wrap {
+	display: flex;
+	flex-direction: column;
+	position: relative;
 }
 
 .label {
-	font-family: "Courier New", Courier, monospace, sans-serif;
-	font-weight: 500;
-	font-size: 20px;
-	color: inherit;
+	font-size: 16px;
+	margin-top: 10px;
+	color: black;
 }
 
 .input {
-	width: 100%;
-	padding: 10px;
+	padding: 10px 0;
 	border: none;
-	border-bottom: 2px solid black;
-	background-color: #e4c94b;
-	outline: none;
-	font-size: 20px;
-}
-
-.input::placeholder {
-	color: grey;
+	border-bottom: 2px solid black; /* Dolna linia */
+	background-color: #e4c94b; /* Żółte tło */
+	font-family: "Courier New", Courier, monospace;
 }
 
 .input:focus {
-	background-color: #e4c94b;
+	border-bottom: 2px solid blue; /* Zmiana koloru dolnej linii przy focusie */
+	outline: none;
 }
 
-.input:active {
-	background-color: #e4c94b;
-}
-
-.error {
-	position: absolute;
-	right: 0;
-	top: 50%;
-	transform: translateY(-50%);
-	color: red;
-	padding-left: 10px;
-	font-size: 12px;
-}
 .button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 150px;
-	padding: 10px;
-	border: 1px solid black;
 	background-color: black;
 	color: white;
-	font-size: 20px;
+	padding: 10px;
+	font-family: "Courier New", Courier, monospace;
+	border: none;
+	cursor: pointer;
+	margin-top: 20px;
+	border-radius: 5px;
 }

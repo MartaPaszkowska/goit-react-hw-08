@@ -1,0 +1,11 @@
+.loading {
+	background-color: #e4c94b; /* Żółte tło */
+	color: black;
+	font-family: "Courier New", Courier, monospace;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	font-size: 24px;
+	font-weight: bold;
+}

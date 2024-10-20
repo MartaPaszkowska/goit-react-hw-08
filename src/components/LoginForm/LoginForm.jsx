@@ -9,29 +9,39 @@ export default function LoginForm() {
 	const id = useId();
 	const dispatch = useDispatch();
 
-	const initialValues = {
-		email: "",
-		password: "",
-	};
-
-	const loginValidation = Yup.object().shape({
-		email: Yup.string().required("Required"),
-		password: Yup.string().required("Required"),
-	});
-
 	const handleSubmit = (values, actions) => {
 		dispatch(login(values));
 		actions.resetForm();
 	};
 
+	const loginSchema = Yup.object().shape({
+		email: Yup.string()
+			.email("Invalid email format")
+			.min(5, "Too Short!")
+			.max(50, "Too Long!")
+			.required("Required"),
+		password: Yup.string()
+			.min(8, "Too Short!")
+			.max(50, "Too Long!")
+			.required("Required"),
+	});
+
 	return (
 		<Formik
-			initialValues={initialValues}
+			initialValues={{
+				email: "",
+				password: "",
+			}}
 			onSubmit={handleSubmit}
-			validationSchema={loginValidation}
+			validationSchema={loginSchema}
 		>
 			<Form className={styles.form}>
-				<div className={styles.inputContainer}>
+				<div className={styles.wrap}>
+					<ErrorMessage
+						className={styles.error}
+						name="email"
+						component="span"
+					/>
 					<Field
 						className={styles.input}
 						type="email"
@@ -39,17 +49,16 @@ export default function LoginForm() {
 						placeholder="Enter your email"
 						id={`email-${id}`}
 					/>
-					<ErrorMessage
-						name="email"
-						component="span"
-						className={styles.error}
-					/>
 					<label className={styles.label} htmlFor={`email-${id}`}>
-						EMAIL
+						Email
 					</label>
 				</div>
-
-				<div className={styles.inputContainer}>
+				<div className={styles.wrap}>
+					<ErrorMessage
+						className={styles.error}
+						name="password"
+						component="span"
+					/>
 					<Field
 						className={styles.input}
 						type="password"
@@ -57,14 +66,8 @@ export default function LoginForm() {
 						placeholder="Enter your password"
 						id={`password-${id}`}
 					/>
-					<ErrorMessage
-						name="password"
-						component="span"
-						className={styles.error}
-					/>
-
 					<label className={styles.label} htmlFor={`password-${id}`}>
-						PASSWORD
+						Password
 					</label>
 				</div>
 				<button className={styles.button} type="submit">

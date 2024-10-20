@@ -1,22 +1,25 @@
 .bg {
-	background: #e4c94b;
+	background-color: #e4c94b; /* Żółte tło */
 	height: 100vh;
 	display: flex;
 	justify-content: center;
-	padding-top: 30px;
-}
-
-.centerContent {
+	align-items: center;
+	flex-direction: column;
 	text-align: center;
+	padding: 20px;
+	font-family: "Courier New", Courier, monospace;
 }
 
 .title {
-	font-weight: 800;
-	font-size: 40px;
-	font-family: "Courier New", Courier, monospace, sans-serif;
+	font-size: 36px;
+	font-weight: bold;
+	color: black;
+	margin-bottom: 20px;
 }
 
-.bookImage {
-	width: 150px;
-	height: auto;
+.text {
+	font-size: 18px;
+	color: black;
+	max-width: 600px;
+	line-height: 1.6;
 }

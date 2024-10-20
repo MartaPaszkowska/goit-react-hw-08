@@ -13,9 +13,15 @@ export default function ContactForm() {
 		number: "",
 	};
 
-	const addContactValidation = Yup.object().shape({
-		email: Yup.string().required("Required"),
-		password: Yup.string().required("Required"),
+	const FeedbackSchema = Yup.object().shape({
+		name: Yup.string()
+			.min(3, "Too Short!")
+			.max(50, "Too Long!")
+			.required("Required"),
+		number: Yup.string()
+			.min(3, "Too Short!")
+			.max(50, "Too Long!")
+			.required("Required"),
 	});
 
 	const handleSubmit = (values, { resetForm }) => {
@@ -32,27 +38,29 @@ export default function ContactForm() {
 		<Formik
 			initialValues={initialValues}
 			onSubmit={handleSubmit}
-			validationSchema={addContactValidation}
+			validationSchema={FeedbackSchema}
 		>
 			<Form className={styles.form}>
-				<div className={styles.inputContainer}>
+				<label className={styles.label}>
+					Name:
 					<Field type="text" name="name" className={styles.input} />
 					<ErrorMessage
 						name="name"
 						component="p"
 						className={styles.error}
 					/>
-					<label className={styles.label}>NAME</label>
-				</div>
-				<div className={styles.inputContainer}>
+				</label>
+
+				<label className={styles.label}>
+					Number:
 					<Field type="text" name="number" className={styles.input} />
 					<ErrorMessage
 						name="number"
 						component="p"
 						className={styles.error}
 					/>
-					<label className={styles.label}>NUMBER</label>
-				</div>
+				</label>
+
 				<button type="submit" className={styles.button}>
 					Add Contact
 				</button>

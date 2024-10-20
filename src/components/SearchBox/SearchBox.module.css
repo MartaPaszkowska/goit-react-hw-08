@@ -1,38 +1,30 @@
 .form {
 	display: flex;
 	flex-direction: column;
-	justify-content: start;
-	align-items: center;
-	height: 100vh;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	gap: 10px;
+	background-color: #e4c94b; /* Żółte tło */
+	padding: 20px;
+	border-radius: 5px;
+	font-family: "Courier New", Courier, monospace;
+	width: 100%;
+	max-width: 400px;
+	margin: 0 auto;
 }
 
-.label {
-	font-family: "Courier New", Courier, monospace, sans-serif;
-	font-weight: 500;
-	font-size: 20px;
+.text {
+	font-size: 18px;
 	color: black;
 }
 
 .input {
-	width: 300px;
-	padding: 10px;
+	padding: 10px 0;
 	border: none;
-	border-bottom: 2px solid black;
+	border-bottom: 2px solid black; /* Dolna linia */
 	background-color: #e4c94b;
 	outline: none;
-	font-size: 20px;
-}
-
-.input::placeholder {
-	color: grey;
+	font-family: "Courier New", Courier, monospace;
 }
 
 .input:focus {
-	background-color: #e4c94b;
-}
-
-.input:active {
-	background-color: #e4c94b;
+	border-bottom: 2px solid blue; /* Zmiana koloru dolnej linii przy focusie */
 }

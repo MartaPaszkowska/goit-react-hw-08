@@ -3,6 +3,7 @@ import AppBar from "../AppBar/AppBar";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { clearContactsOperation } from "../../redux/contacts/operations";
+import styles from "./Layout.module.css";
 
 const Layout = () => {
 	const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const Layout = () => {
 	return (
 		<>
 			<AppBar />
-			<main>
+			<main className={styles.main}>
 				<Outlet />
 			</main>
 		</>

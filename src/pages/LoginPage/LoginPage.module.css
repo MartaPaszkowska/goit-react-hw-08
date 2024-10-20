@@ -1,28 +1,31 @@
 .bg {
-	background-color: #e4c94b;
+	background-color: #e4c94b; /* Żółte tło */
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	position: relative;
+	align-items: center;
+	text-align: center;
+	font-family: "Courier New", Courier, monospace;
 }
 
 .title {
-	display: flex;
-	justify-content: center;
-	font-weight: 800;
-	font-size: 40px;
-	font-family: "Courier New", Courier, monospace, sans-serif;
+	font-size: 36px;
+	font-weight: bold;
+	color: black;
+	margin-bottom: 20px;
 }
 
-.LinkContainer {
-	position: absolute;
-	bottom: 100px;
-	width: 100%;
-	text-align: center;
+.link {
+	margin-top: 20px;
+	font-size: 16px;
+	color: black;
+	text-decoration: none;
+	border-bottom: 1px solid black;
+	padding-bottom: 2px;
 }
 
-.Link {
-	display: inline-block;
-	justify-content: center;
+.link:hover {
+	color: blue;
+	border-bottom: 1px solid blue;
 }
