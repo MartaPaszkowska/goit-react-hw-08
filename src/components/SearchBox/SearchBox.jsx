@@ -13,13 +13,13 @@ export default function SearchBox() {
 
 	return (
 		<div className={styles.form}>
+			<p className={styles.text}>Find contact by name:</p>
 			<input
 				type="text"
 				value={filter}
 				onChange={handleChange}
 				className={styles.input}
 			/>
-			<label className={styles.label}>FIND CONTACT BY NAME</label>
 		</div>
 	);
 }

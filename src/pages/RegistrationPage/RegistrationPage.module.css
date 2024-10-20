@@ -1,15 +1,17 @@
 .bg {
-	background-color: #e4c94b;
+	background-color: #e4c94b; /* Żółte tło */
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-family: "Courier New", Courier, monospace;
 }
 
 .title {
-	display: flex;
-	justify-content: center;
-	font-weight: 800;
-	font-size: 40px;
-	font-family: "Courier New", Courier, monospace, sans-serif;
+	font-size: 36px;
+	font-weight: bold;
+	color: black;
+	margin-bottom: 20px;
 }
