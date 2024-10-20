@@ -27,7 +27,7 @@ export default function Navigation() {
 							: styles.link
 					}
 				>
-					CONSTACTS
+					CONTACTS
 				</NavLink>
 			)}
 		</nav>
