@@ -6,7 +6,7 @@ import Layout from "./components/Layout/Layout";
 import PrivateRoute from "./PrivateRoute";
 import RestrictedRoute from "./RestrictedRoute";
 import { selectIsRefreshing } from "./redux/auth/selectors";
-import styles from "./App.module.css"; // Import for custom styles
+import styles from "./App.module.css"; 
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const RegistrationPage = lazy(() =>
@@ -24,7 +24,7 @@ function App() {
 	}, [dispatch]);
 
 	if (isRefreshing) {
-		return <div className={styles.loading}>Loading...</div>; // Using custom styles for loading state
+		return <div className={styles.loading}>Loading...</div>; 
 	}
 
 	return (

@@ -14,10 +14,10 @@ const UserMenu = () => {
 	return (
 		<div className={styles.userMenu}>
 			<Typography variant="body1" className={styles.greeting}>
-				Hello, {user.name}!
+				HELLO, {user.name}!
 			</Typography>
 			<Button className={styles.button} onClick={handleLogout}>
-				Log out
+				LOG OUT
 			</Button>
 		</div>
 	);

@@ -16,25 +16,24 @@ export default function RegisterForm() {
 			password: values.password,
 		};
 
-		console.log("Register form values:", credentials);
 		dispatch(register(credentials));
 		actions.resetForm();
 	};
 
-	const addContactSchema = Yup.object().shape({
+	const registerValid = Yup.object().shape({
 		name: Yup.string()
-			.min(3, "Name is too short! Minimum 3 characters.")
-			.max(50, "Name is too long! Maximum 50 characters.")
-			.required("Name is required."),
+			.min(3, "Minimum 3 characters.")
+			.max(50, "Maximum 50 characters.")
+			.required("Required."),
 		email: Yup.string()
 			.email("Invalid email format")
-			.min(5, "Email is too short!")
-			.max(50, "Email is too long!")
-			.required("Email is required."),
+			.min(5, "Minimum 5 characters.")
+			.max(50, "Maximum 50 characters.")
+			.required("Required."),
 		password: Yup.string()
-			.min(8, "Password is too short! Minimum 8 characters.")
-			.max(50, "Password is too long! Maximum 50 characters.")
-			.required("Password is required."),
+			.min(8, "Minimum 8 characters.")
+			.max(50, "Maximum 50 characters.")
+			.required("Required."),
 	});
 
 	return (
@@ -45,10 +44,10 @@ export default function RegisterForm() {
 				password: "",
 			}}
 			onSubmit={handleSubmit}
-			validationSchema={addContactSchema}
+			validationSchema={registerValid}
 		>
 			<Form className={styles.form}>
-				<div className={styles.wrap}>
+				<div className={styles.container}>
 					<ErrorMessage
 						className={styles.error}
 						name="name"
@@ -66,7 +65,7 @@ export default function RegisterForm() {
 						Name
 					</label>
 				</div>
-				<div className={styles.wrap}>
+				<div className={styles.container}>
 					<ErrorMessage
 						className={styles.error}
 						name="email"
@@ -81,10 +80,10 @@ export default function RegisterForm() {
 						required
 					/>
 					<label className={styles.label} htmlFor={`email${id}`}>
-						Email
+						EMAIL
 					</label>
 				</div>
-				<div className={styles.wrap}>
+				<div className={styles.container}>
 					<ErrorMessage
 						className={styles.error}
 						name="password"
@@ -99,11 +98,11 @@ export default function RegisterForm() {
 						required
 					/>
 					<label className={styles.label} htmlFor={`password${id}`}>
-						Password
+						PASSWORD
 					</label>
 				</div>
 				<button className={styles.button} type="submit">
-					Register
+					REGISTER
 				</button>
 			</Form>
 		</Formik>

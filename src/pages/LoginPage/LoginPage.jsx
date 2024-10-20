@@ -20,7 +20,7 @@ const LoginPage = () => {
 			<h2 className={styles.title}>LOGIN</h2>
 			<LoginForm />
 			<Link to="/register" className={styles.link}>
-				Do not have an account? Please register
+				If you do not have an account yet, please register.
 			</Link>
 		</div>
 	);

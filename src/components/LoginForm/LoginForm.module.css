@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
-	background-color: #e4c94b; /* Żółte tło */
+	background-color: #e4c94b;
 	padding: 30px;
 	border-radius: 10px;
 	font-family: "Courier New", Courier, monospace;
@@ -11,7 +11,7 @@
 	margin: 0 auto;
 }
 
-.wrap {
+.container {
 	display: flex;
 	flex-direction: column;
 	position: relative;
@@ -26,13 +26,13 @@
 .input {
 	padding: 10px 0;
 	border: none;
-	border-bottom: 2px solid black; /* Dolna linia */
-	background-color: #e4c94b; /* Żółte tło */
+	border-bottom: 2px solid black;
+	background-color: #e4c94b;
 	font-family: "Courier New", Courier, monospace;
 }
 
 .input:focus {
-	border-bottom: 2px solid blue; /* Zmiana koloru dolnej linii przy focusie */
+	border-bottom: 2px solid blue;
 	outline: none;
 }
 

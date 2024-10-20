@@ -1,7 +1,7 @@
 .nav {
 	display: flex;
 	gap: 20px;
-	background-color: #e4c94b; /* Żółte tło */
+	background-color: #e4c94b;
 	padding: 10px;
 }
 

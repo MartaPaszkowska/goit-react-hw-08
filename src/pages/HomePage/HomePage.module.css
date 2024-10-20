@@ -1,12 +1,11 @@
 .bg {
-	background-color: #e4c94b; /* Żółte tło */
+	background-color: #e4c94b;
 	height: 100vh;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
 	text-align: center;
-	padding: 20px;
 	font-family: "Courier New", Courier, monospace;
 }
 
@@ -15,11 +14,4 @@
 	font-weight: bold;
 	color: black;
 	margin-bottom: 20px;
-}
-
-.text {
-	font-size: 18px;
-	color: black;
-	max-width: 600px;
-	line-height: 1.6;
 }

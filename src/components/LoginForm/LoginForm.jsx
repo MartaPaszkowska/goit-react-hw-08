@@ -14,16 +14,9 @@ export default function LoginForm() {
 		actions.resetForm();
 	};
 
-	const loginSchema = Yup.object().shape({
-		email: Yup.string()
-			.email("Invalid email format")
-			.min(5, "Too Short!")
-			.max(50, "Too Long!")
-			.required("Required"),
-		password: Yup.string()
-			.min(8, "Too Short!")
-			.max(50, "Too Long!")
-			.required("Required"),
+	const loginValid = Yup.object().shape({
+		email: Yup.string().required("Required"),
+		password: Yup.string().required("Required"),
 	});
 
 	return (
@@ -33,10 +26,10 @@ export default function LoginForm() {
 				password: "",
 			}}
 			onSubmit={handleSubmit}
-			validationSchema={loginSchema}
+			validationSchema={loginValid}
 		>
 			<Form className={styles.form}>
-				<div className={styles.wrap}>
+				<div className={styles.container}>
 					<ErrorMessage
 						className={styles.error}
 						name="email"
@@ -50,10 +43,10 @@ export default function LoginForm() {
 						id={`email-${id}`}
 					/>
 					<label className={styles.label} htmlFor={`email-${id}`}>
-						Email
+						EMAIL
 					</label>
 				</div>
-				<div className={styles.wrap}>
+				<div className={styles.container}>
 					<ErrorMessage
 						className={styles.error}
 						name="password"
@@ -67,7 +60,7 @@ export default function LoginForm() {
 						id={`password-${id}`}
 					/>
 					<label className={styles.label} htmlFor={`password-${id}`}>
-						Password
+						PASSWORD
 					</label>
 				</div>
 				<button className={styles.button} type="submit">

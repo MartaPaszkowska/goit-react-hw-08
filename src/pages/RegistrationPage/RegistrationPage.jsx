@@ -1,11 +1,10 @@
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
-import { Typography } from "@mui/material";
 import styles from "./RegistrationPage.module.css";
 
 const RegistrationPage = () => {
 	return (
 		<div className={styles.bg}>
-			<Typography className={styles.title}>REGISTRATION</Typography>
+			<h2 className={styles.title}>REGISTRATION</h2>
 			<RegisterForm />
 		</div>
 	);

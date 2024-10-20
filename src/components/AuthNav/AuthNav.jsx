@@ -4,12 +4,12 @@ import styles from "./AuthNav.module.css";
 
 const AuthNav = () => {
 	return (
-		<div className={styles.wrap}>
+		<div className={styles.container}>
 			<Button className={styles.button} component={Link} to="/login">
-				Log in
+				LOG IN
 			</Button>
 			<Button className={styles.button} component={Link} to="/register">
-				Registration
+				REGISTRATION
 			</Button>
 		</div>
 	);

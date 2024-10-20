@@ -13,15 +13,9 @@ export default function ContactForm() {
 		number: "",
 	};
 
-	const FeedbackSchema = Yup.object().shape({
-		name: Yup.string()
-			.min(3, "Too Short!")
-			.max(50, "Too Long!")
-			.required("Required"),
-		number: Yup.string()
-			.min(3, "Too Short!")
-			.max(50, "Too Long!")
-			.required("Required"),
+	const addContactValid = Yup.object().shape({
+		name: Yup.string().required("Required"),
+		number: Yup.string().required("Required"),
 	});
 
 	const handleSubmit = (values, { resetForm }) => {
@@ -38,11 +32,11 @@ export default function ContactForm() {
 		<Formik
 			initialValues={initialValues}
 			onSubmit={handleSubmit}
-			validationSchema={FeedbackSchema}
+			validationSchema={addContactValid}
 		>
 			<Form className={styles.form}>
 				<label className={styles.label}>
-					Name:
+					NAME
 					<Field type="text" name="name" className={styles.input} />
 					<ErrorMessage
 						name="name"
@@ -52,7 +46,7 @@ export default function ContactForm() {
 				</label>
 
 				<label className={styles.label}>
-					Number:
+					NUMBER
 					<Field type="text" name="number" className={styles.input} />
 					<ErrorMessage
 						name="number"
